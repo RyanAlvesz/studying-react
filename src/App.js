@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import Banner from "./components/Banner";
+import Card from "./components/Card";
+import Category from "./components/Category";
+import Container from "./components/Container";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+
+import birds from './json/db.json'
+
+const categories = [
+  'Big Birds',
+  'Birds',
+  'Little Birds'
+]
+
+function filterCategory(id) {
+  return birds.filter(paint => paint.category === categories[id])
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header/>
+      <Banner image = '3'/>
+      <Container>
+        <Category category={'Birds'}>
+          {
+            filterCategory(0).map((paint) => {
+            return <Card cover={paint.cover} title={paint.title} url={paint.url} key={paint.id} />
+            })
+          }
+        </Category>
+        <Category category={'Big Birds'}>
+          {
+            filterCategory(1).map((paint) => {
+            return <Card cover={paint.cover} title={paint.title} url={paint.url} key={paint.id} />
+            })
+          }
+        </Category>
+      </Container>
+      <Footer/>
+    </>   
   );
 }
 

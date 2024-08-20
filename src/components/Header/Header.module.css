@@ -1,0 +1,30 @@
+.header {
+    box-sizing: border-box;
+    background-color: #B8CED4;
+    border-bottom: 4px solid #204149;
+    position: sticky;
+    height: 10vh;
+    top: 0;
+    width: 100%;
+    display: flex;
+    padding-inline: 1.5rem;
+    font-size: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.header span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #204149;
+}
+
+.header a {
+    text-decoration: none;
+    color: #3E7D8D;
+}
